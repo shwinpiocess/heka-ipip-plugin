@@ -54,7 +54,7 @@ func (ld *IpipDecoder) Init(config interface{}) (err error) {
 	ld.SourceIpField = conf.SourceIpField
 
 	if ld.gi == nil {
-		ld.gi = ipip.Init(conf.DatabaseFile)
+		ld.gi, err = ipip.Init(conf.DatabaseFile)
 	}
 	if err != nil {
 		return fmt.Errorf("Could not open IPIP database: %s\n")
@@ -73,10 +73,13 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 
 	buf.WriteString(`{`)
 
-	buf.WriteString(`"lat":`)
+	buf.WriteString(`"ip":"`)
+        buf.WriteString(rec.IP)
+
+	buf.WriteString(`","latitude":`)
 	buf.WriteString(rec.LA)
 
-	buf.WriteString(`,"lng":`)
+	buf.WriteString(`,"longitude":`)
 	buf.WriteString(rec.LN)
 
 	buf.WriteString(`,"location":[`)
@@ -85,29 +88,29 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 	buf.WriteString(rec.LA)
 	buf.WriteString(`]`)
 
-	buf.WriteString(`,"countrycode":`)
+	buf.WriteString(`,"country_code":"`)
 	buf.WriteString(rec.CC)
 
-	buf.WriteString(`,"country":"`)
+	buf.WriteString(`","country_name":"`)
 	buf.WriteString(rec.CR)
 	buf.WriteString(`"`)
 
-	buf.WriteString(`,"region":"`)
+	buf.WriteString(`,"region_name":"`)
 	buf.WriteString(rec.RG)
 	buf.WriteString(`"`)
 
-	buf.WriteString(`,"city":"`)
+	buf.WriteString(`,"city_name":"`)
 	buf.WriteString(rec.CT)
 	buf.WriteString(`"`)
 
-	buf.WriteString(`,"isp":"`)
+	buf.WriteString(`,"isp_name":"`)
 	buf.WriteString(rec.IS)
 	buf.WriteString(`"`)
 
-	buf.WriteString(`,"continentcode":`)
+	buf.WriteString(`,"continent_code":"`)
 	buf.WriteString(rec.WC)
 
-	buf.WriteString(`}`)
+	buf.WriteString(`"}`)
 
 	return buf
 }
