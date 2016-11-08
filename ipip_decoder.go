@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/mozilla-services/heka/message"
 	. "github.com/mozilla-services/heka/pipeline"
-	"github.com/mxlxm/ipip-go"
+	"github.com/shwinpiocess/ipip-go"
 	//"strconv"
 )
 
