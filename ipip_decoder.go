@@ -77,15 +77,31 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
         buf.WriteString(rec.IP)
 
 	buf.WriteString(`","latitude":`)
-	buf.WriteString(rec.LA)
+        if rec.LA == "" {
+		buf.WriteString("0")
+	} else {
+		buf.WriteString(rec.LA)
+	}
 
 	buf.WriteString(`,"longitude":`)
-	buf.WriteString(rec.LN)
+	if rec.LN == "" {
+		buf.WriteString("0")
+	} else {
+		buf.WriteString(rec.LN)
+	}
 
 	buf.WriteString(`,"location":[`)
-	buf.WriteString(rec.LN)
+	if rec.LN == "" {
+                buf.WriteString("0")
+        } else {
+                buf.WriteString(rec.LN)
+        }
 	buf.WriteString(`,`)
-	buf.WriteString(rec.LA)
+	if rec.LA == "" {
+                buf.WriteString("0")
+        } else {
+                buf.WriteString(rec.LA)
+        }
 	buf.WriteString(`]`)
 
 	buf.WriteString(`,"country_code":"`)
