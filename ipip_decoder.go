@@ -122,7 +122,7 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 
 	buf.WriteString(`,"isp_name":"`)
 	buf.WriteString(rec.IS)
-	buf.WriteString(`"`)
+	// buf.WriteString(`"`)
 
 	// buf.WriteString(`,"continent_code":"`)
 	// buf.WriteString(rec.WC)
