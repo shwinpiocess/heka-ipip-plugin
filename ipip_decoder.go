@@ -73,41 +73,42 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 
 	buf.WriteString(`{`)
 
-	buf.WriteString(`"ip":"`)
-        buf.WriteString(rec.IP)
+	// buf.WriteString(`"ip":"`)
+        // buf.WriteString(rec.IP)
 
-	buf.WriteString(`","latitude":`)
-        if rec.LA == "" {
-		buf.WriteString("0")
-	} else {
-		buf.WriteString(rec.LA)
-	}
+	// buf.WriteString(`","latitude":`)
+        // if rec.LA == "" {
+	// 	buf.WriteString("0")
+	// } else {
+	// 	buf.WriteString(rec.LA)
+	// }
 
-	buf.WriteString(`,"longitude":`)
-	if rec.LN == "" {
-		buf.WriteString("0")
-	} else {
-		buf.WriteString(rec.LN)
-	}
+	// buf.WriteString(`,"longitude":`)
+	// if rec.LN == "" {
+	// 	buf.WriteString("0")
+	// } else {
+	// 	buf.WriteString(rec.LN)
+	// }
 
-	buf.WriteString(`,"location":[`)
-	if rec.LN == "" {
-                buf.WriteString("0")
-        } else {
-                buf.WriteString(rec.LN)
-        }
-	buf.WriteString(`,`)
-	if rec.LA == "" {
-                buf.WriteString("0")
-        } else {
-                buf.WriteString(rec.LA)
-        }
-	buf.WriteString(`]`)
+	// buf.WriteString(`,"location":[`)
+	// if rec.LN == "" {
+        //         buf.WriteString("0")
+        // } else {
+        //         buf.WriteString(rec.LN)
+        // }
+	// buf.WriteString(`,`)
+	// if rec.LA == "" {
+        //         buf.WriteString("0")
+        // } else {
+        //         buf.WriteString(rec.LA)
+        // }
+	// buf.WriteString(`]`)
 
-	buf.WriteString(`,"country_code":"`)
-	buf.WriteString(rec.CC)
+	// buf.WriteString(`,"country_code":"`)
+	// buf.WriteString(rec.CC)
 
-	buf.WriteString(`","country_name":"`)
+	// buf.WriteString(`","country_name":"`)
+	buf.WriteString(`"country_name":"`)
 	buf.WriteString(rec.CR)
 	buf.WriteString(`"`)
 
@@ -123,8 +124,8 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 	buf.WriteString(rec.IS)
 	buf.WriteString(`"`)
 
-	buf.WriteString(`,"continent_code":"`)
-	buf.WriteString(rec.WC)
+	// buf.WriteString(`,"continent_code":"`)
+	// buf.WriteString(rec.WC)
 
 	buf.WriteString(`"}`)
 
