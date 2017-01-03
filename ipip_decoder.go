@@ -108,7 +108,7 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 	// buf.WriteString(`,"country_code":"`)
 	// buf.WriteString(rec.CC)
 
-	buf.WriteString(`","country_name":"`)
+	buf.WriteString(`,"country_name":"`)
 	buf.WriteString(rec.CR)
 	buf.WriteString(`"`)
 
