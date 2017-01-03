@@ -91,24 +91,24 @@ func (ld *IpipDecoder) IpipBuff(rec *ipip.IPIP) bytes.Buffer {
 	// }
 
 	// buf.WriteString(`,"location":[`)
-	// if rec.LN == "" {
-        //         buf.WriteString("0")
-        // } else {
-        //         buf.WriteString(rec.LN)
-        // }
-	// buf.WriteString(`,`)
-	// if rec.LA == "" {
-        //         buf.WriteString("0")
-        // } else {
-        //         buf.WriteString(rec.LA)
-        // }
-	// buf.WriteString(`]`)
+	buf.WriteString(`"location":[`)
+	if rec.LN == "" {
+		buf.WriteString("0")
+	} else {
+		buf.WriteString(rec.LN)
+	}
+	buf.WriteString(`,`)
+	if rec.LA == "" {
+		buf.WriteString("0")
+	} else {
+		buf.WriteString(rec.LA)
+	}
+	buf.WriteString(`]`)
 
 	// buf.WriteString(`,"country_code":"`)
 	// buf.WriteString(rec.CC)
 
-	// buf.WriteString(`","country_name":"`)
-	buf.WriteString(`"country_name":"`)
+	buf.WriteString(`","country_name":"`)
 	buf.WriteString(rec.CR)
 	buf.WriteString(`"`)
 
